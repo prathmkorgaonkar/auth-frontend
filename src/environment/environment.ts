@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   BACKEND_SERVER_URL: 'https://auth-backend-ri8p.onrender.com'
 };
 
