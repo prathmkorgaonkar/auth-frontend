@@ -2,22 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { environment } from '../../environment/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private serverUrl = environment.BACKEND_SERVER_URL;
+  private baseUrl = 'https://auth-backend-ri8p.onrender.com/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
   // Login method
   login(data: { email: string; password: string }): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>(`${this.serverUrl}route/user/login`, data);
+    return this.http.post<{ token: string }>(`${this.baseUrl}route/user/login`, data);
   }
 
   // Signup method
   signup(data: { name: string; email: string; password: string; mobile: string }): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>(`${this.serverUrl}route/user/signup`, data);
+    return this.http.post<{ token: string }>(`${this.baseUrl}route/user/signup`, data);
   }
 
   // Save token in localStorage
@@ -43,11 +42,11 @@ export class AuthService {
 
   // Get logged-in user's profile
   getProfile(): Observable<any> {
-    return this.http.get(`${this.serverUrl}route/user/getProfile`);
+    return this.http.get(`${this.baseUrl}route/user/getProfile`);
   }
 
   // Update logged-in user's profile
   updateProfile(data: { name: string; mobile: string; password?: string }): Observable<any> {
-    return this.http.put(`${this.serverUrl}route/user/updateProfile`, data);
+    return this.http.put(`${this.baseUrl}route/user/updateProfile`, data);
   }
 }
