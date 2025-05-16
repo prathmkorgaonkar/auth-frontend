@@ -1,0 +1,12 @@
+<div class="dashboard">
+      <h2>My Profile</h2>
+
+      <form *ngIf="user" (ngSubmit)="updateProfile()">
+        <input type="text" [(ngModel)]="user.name" name="name" placeholder="Name" required /> <br><br>
+        <input type="text" [(ngModel)]="user.mobile" name="mobile" placeholder="Mobile" required /> <br><br>
+        <input type="password" [(ngModel)]="user.password" name="password" placeholder="New Password" /> <br><br>
+        <button type="submit">Update</button>
+      </form>
+
+      <button (click)="logout()">Logout</button>
+    </div>

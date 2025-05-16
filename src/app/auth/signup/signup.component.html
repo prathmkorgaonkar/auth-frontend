@@ -1,0 +1,9 @@
+<h2>Signup</h2>
+<form (ngSubmit)="signup()">
+  <input type="text" [(ngModel)]="form.name" name="name" placeholder="Name" required /> <br><br>
+  <input type="email" [(ngModel)]="form.email" name="email" placeholder="Email" required /> <br><br>
+  <input type="password" [(ngModel)]="form.password" name="password" placeholder="Password" required /> <br><br>
+  <input type="text" [(ngModel)]="form.mobile" name="mobile" placeholder="Mobile Number" required /> <br><br>
+  <button type="submit">Signup</button>
+</form>
+<p>Already have an account? <a routerLink="/login">Login</a></p>
